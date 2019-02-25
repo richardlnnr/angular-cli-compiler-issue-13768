@@ -11,7 +11,7 @@ describe('ComponentApiService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('get', () => {
+  it('should retrieveEntity', () => {
     const service: ComponentApiService = TestBed.get(ComponentApiService);
     service.retrieveEntity().subscribe((component) => {
       expect(component instanceof Component).toBeTruthy();
