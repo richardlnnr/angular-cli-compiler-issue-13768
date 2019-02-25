@@ -1,27 +1,22 @@
-# AngularCompilerIssue
+# Angular Compiler Issue
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+This project was generated to demonstrate an issue in Angular Compiler when you use libraries
 
-## Development server
+For building this project it's necessary running the following steps:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* `npm install`
+* `npm run build:lib-domain`
+* `ng serve --prod`
 
-## Code scaffolding
+## Project structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This workspace is divided into two projects.
 
-## Build
+* main-app is an application that is responsible for running the library.
+* domain is a library that has classes and utility methods.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Problem
 
-## Running unit tests
+When the application "main-app" is built using production mode. The method `remap` inside `domain/base-functions.ts` doesn't work.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+If the flag "optimization" in angular.json (main-app section) is changed to false or building the "main-app" in dev mode, the problem doesn't happen.
