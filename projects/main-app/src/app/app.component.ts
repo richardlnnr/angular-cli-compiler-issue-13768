@@ -10,6 +10,7 @@ import { ComponentOptions } from '@lib/domain';
 export class AppComponent implements OnInit {
 
   component: ComponentOptions;
+  component2: ComponentOptions;
 
   constructor(private componentApi: ComponentApiService) {
   }
@@ -20,6 +21,11 @@ export class AppComponent implements OnInit {
       // When I change the optimization parameter to false, that works
       // "optimization": false
       this.component = component;
+    });
+
+    this.componentApi.retrieveEntityWithoutArrowFunction().subscribe((component: ComponentOptions) => {
+      // The problem only happens when you use arrow functions
+      this.component2 = component;
     });
   }
 }
