@@ -17,6 +17,8 @@ This workspace is divided into two projects.
 
 ## Problem
 
+https://github.com/angular/angular-cli/issues/13768
+
 When the application "main-app" is built using production mode. The method `remap` inside `domain/base-functions.ts` doesn't work.
 
 If the flag "optimization" in angular.json (main-app section) is changed to false or building the "main-app" in dev mode, the problem doesn't happen.
